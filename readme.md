@@ -121,3 +121,11 @@ If you discover a security vulnerability within LAV_SMS, please send an e-mail t
 
 ### **Contact [CJ INSPIRED]**
 - Phone : +2347068149559
+### **Tips to run the code**
+
+- Insatll Xmapp controller https://www.apachefriends.org/fr/download.html
+- composer install
+- npm install
+- cp .env.example .env
+- php artisan key:generate
+- php artisan migrate

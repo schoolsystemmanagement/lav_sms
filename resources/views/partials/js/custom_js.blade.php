@@ -238,6 +238,7 @@
                 displayAjaxErr(errors);
             }
            if(e.status == 500){
+               console.error(e);
                displayAjaxErr([e.status + ' ' + e.statusText + ' Please Check for Duplicate entry or Contact School Administrator/IT Personnel'])
            }
             if(e.status == 404){

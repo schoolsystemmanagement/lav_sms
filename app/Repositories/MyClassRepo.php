@@ -6,6 +6,7 @@ use App\Models\ClassType;
 use App\Models\MyClass;
 use App\Models\Section;
 use App\Models\Subject;
+use App\Models\Topic;
 
 class MyClassRepo
 {
@@ -137,6 +138,54 @@ class MyClassRepo
     public function getAllSubjects()
     {
         return Subject::orderBy('name', 'asc')->with(['my_class', 'teacher'])->get();
+    }
+
+    /************* Topic *******************/
+
+    public function createTopic($data)
+    {
+        return Topic::create($data);
+    }
+
+    public function findTopic($id)
+    {
+        return Topic::find($id);
+    }
+
+    public function findTopicByClass($class_id, $order_by = 'name')
+    {
+        return $this->getTopic(['my_class_id'=> $class_id])->orderBy($order_by)->get();
+    }
+
+    // public function findTopicByTeacher($teacher_id, $order_by = 'name')
+    // {
+    //     return $this->getTopic(['teacher_id'=> $teacher_id])->orderBy($order_by)->get();
+    // }
+
+    public function getTopic($data)
+    {
+        return Topic::where($data);
+    }
+
+    public function getTopicsByIDs($ids)
+    {
+        return Topic::whereIn('id', $ids)->orderBy('name')->get();
+    }
+
+    public function updateTopic($id, $data)
+    {
+        return Topic::find($id)->update($data);
+    }
+
+    public function deleteTopic($id)
+    {
+        return Topic::destroy($id);
+    }
+
+    public function getAllTopics()
+    {
+        // return Topic::orderBy('name', 'asc')->with(['my_class', 'teacher'])->get();
+        return Topic::orderBy('name', 'asc')->get();
     }
 
 }

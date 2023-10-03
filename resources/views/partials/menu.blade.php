@@ -158,6 +158,11 @@
                     <li class="nav-item">
                         <a href="{{ route('subjects.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Subjects</span></a>
                     </li>
+
+                    {{--Manage Topics--}}
+                    <li class="nav-item">
+                        <a href="{{ route('topics.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['topics.index','topics.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Topics</span></a>
+                    </li>
                 @endif
 
                 {{--Exam--}}

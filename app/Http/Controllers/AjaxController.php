@@ -55,4 +55,23 @@ class AjaxController extends Controller
         return $d;
     }
 
+    public function get_class_topics($class_id)
+    {
+        $sections = $this->my_class->getClassSections($class_id);
+        $topics = $this->my_class->findTopicByClass($class_id);
+
+        // if(Qs::userIsTeacher()){
+        //     $topics = $this->my_class->findTopicByTeacher(Auth::user()->id)->where('my_class_id', $class_id);
+        // }
+
+        $d['sections'] = $sections->map(function($q){
+            return ['id' => $q->id, 'name' => $q->name];
+        })->all();
+        $d['topics'] = $topics->map(function($q){
+            return ['id' => $q->id, 'name' => $q->name];
+        })->all();
+
+        return $d;
+    }
+
 }

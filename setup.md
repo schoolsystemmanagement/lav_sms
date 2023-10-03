@@ -86,3 +86,13 @@ This guide provides step-by-step instructions to set up a Laravel project on you
    # Start the Laravel development server
    php artisan serve
    ```
+
+10. **laravel pattern: MVC like django**
+   - routes/web.php (php) --> routes 
+      - call controllers (php)
+      - call resources\views\partials\js\custom_js.blade.php (js) on form submission: he writes on the console
+   - app/http/requests (php) --> serializers (used in controllers for data validation)
+   - app/http/controllers (php) --> controllers (use serializers automatiq for data validation; use models for crud; return parse(a_view, data_for_client) like in django)
+   - app/models (php) --> models (used in controllers for crud)
+   - ressources/views (blade: php-client like) --> views (like in django)
+

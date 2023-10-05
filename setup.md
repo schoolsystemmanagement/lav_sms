@@ -96,3 +96,7 @@ This guide provides step-by-step instructions to set up a Laravel project on you
    - app/models (php) --> models (used in controllers for crud)
    - ressources/views (blade: php-client like) --> views (like in django)
 
+11. **remarks**
+   - `teacher_id` in `Section` model ! It it the "professeur principal" i guess
+   - `class_type_id` in `my_class` model ! So, we can define a class as in `secondary_school`, `primary`, ...
+   - `teacher_id` in `Subject` model ! why ?

@@ -26,6 +26,7 @@ class TopicController extends Controller
     {
         $d['my_classes'] = $this->my_class->all();
         // $d['teachers'] = $this->user->getUserByType('teacher');
+        $d['subjects'] = $this->my_class->getAllSubjects();
         $d['topics'] = $this->my_class->getAllTopics();
 
         return view('pages.support_team.topics.index', $d);
@@ -44,6 +45,7 @@ class TopicController extends Controller
         $d['s'] = $sub = $this->my_class->findTopic($id);
         $d['my_classes'] = $this->my_class->all();
         // $d['teachers'] = $this->user->getUserByType('teacher');
+        $d['subjects'] = $this->my_class->getAllSubjects();
 
         return is_null($sub) ? Qs::goWithDanger('topics.index') : view('pages.support_team.topics.edit', $d);
     }

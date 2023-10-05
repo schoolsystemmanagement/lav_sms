@@ -18,12 +18,13 @@ class CreateTopicsTable extends Migration
             $table->string('name', 100);
             $table->string('slug', 100);
             $table->unsignedInteger('my_class_id');
+            $table->unsignedInteger('subject_id');
             // $table->unsignedInteger('teacher_id');
             $table->timestamps();
         });
 
         Schema::table('topics', function (Blueprint $table) {
-            $table->unique(['my_class_id', 'name']);
+            $table->unique(['my_class_id', 'name', 'subject_id']);
         });
     }
 

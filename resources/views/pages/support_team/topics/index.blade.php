@@ -65,6 +65,18 @@
                                     </div>
                                 </div> --}}
 
+                                <div class="form-group row">
+                                    <label for="subject_id" class="col-lg-3 col-form-label font-weight-semibold">Subject <span class="text-danger">*</span></label>
+                                    <div class="col-lg-9">
+                                        <select required data-placeholder="Select Subject" class="form-control select-search" name="subject_id" id="subject_id">
+                                            <option value=""></option>
+                                            @foreach($subjects as $t)
+                                                <option {{ old('subject_id') == Qs::hash($t->id) ? 'selected' : '' }} value="{{ Qs::hash($t->id) }}">{{ $t->name }} - {{ $t->my_class->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
                                 </div>
@@ -82,6 +94,7 @@
                                 <th>Short Name</th>
                                 <th>Class</th>
                                 {{-- <th>Teacher</th> --}}
+                                <th>Subject</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -93,6 +106,7 @@
                                     <td>{{ $s->slug }} </td>
                                     <td>{{ $s->my_class->name }}</td>
                                     {{-- <td>{{ $s->teacher->name }}</td> --}}
+                                    <td>{{ $s->subject->name }}</td>
                                     <td class="text-center">
                                         <div class="list-icons">
                                             <div class="dropdown">

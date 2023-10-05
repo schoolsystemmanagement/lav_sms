@@ -184,7 +184,7 @@ class MyClassRepo
 
     public function getAllTopics()
     {
-        // return Topic::orderBy('name', 'asc')->with(['my_class', 'teacher'])->get();
+        // return Topic::orderBy('name', 'asc')->with(['my_class', 'subject'])->get();
         return Topic::orderBy('name', 'asc')->get();
     }
 

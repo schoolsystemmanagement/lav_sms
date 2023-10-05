@@ -24,6 +24,7 @@ class TopicUpdate extends FormRequest
             'name' => 'required|string|min:3',
             'my_class_id' => 'required',
             // 'teacher_id' => 'sometimes|nullable|exists:users,id',
+            'subject_id' => 'sometimes|nullable|exists:subjects,id',
             'slug' => 'nullable|string|min:3',
         ];
     }
@@ -33,6 +34,7 @@ class TopicUpdate extends FormRequest
         return  [
             'my_class_id' => 'Class',
             // 'teacher_id' => 'Teacher',
+            'subject_id' => 'Subject',
             'slug' => 'Short Name',
         ];
     }
@@ -42,6 +44,7 @@ class TopicUpdate extends FormRequest
         $input = $this->all();
 
         // $input['teacher_id'] = $input['teacher_id'] ? Qs::decodeHash($input['teacher_id']) : NULL;
+        $input['subject_id'] = $input['subject_id'] ? Qs::decodeHash($input['subject_id']) : NULL;
 
         $this->getInputSource()->replace($input);
 

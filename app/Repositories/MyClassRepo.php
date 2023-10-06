@@ -7,6 +7,7 @@ use App\Models\MyClass;
 use App\Models\Section;
 use App\Models\Subject;
 use App\Models\Topic;
+use App\Models\ClassNotebook;
 
 class MyClassRepo
 {
@@ -188,4 +189,56 @@ class MyClassRepo
         return Topic::orderBy('name', 'asc')->get();
     }
 
+    /************* ClassNotebook *******************/
+
+    public function createClassNotebook($data)
+    {
+        return ClassNotebook::create($data);
+    }
+
+    public function findClassNotebook($id)
+    {
+        return ClassNotebook::find($id);
+    }
+
+    // public function findClassNotebookByClass($class_id, $order_by = 'date')
+    // {
+    //     return $this->getClassNotebook(['my_class_id'=> $class_id])->orderBy($order_by)->get();
+    // }
+
+    // public function findClassNotebookBySection($section_id, $order_by = 'date')
+    // {
+    //     return $this->getClassNotebook(['section_id'=> $section_id])->orderBy($order_by)->get();
+    // }
+
+    public function findClassNotebookByTeacher($teacher_id, $order_by = 'date')
+    {
+        return $this->getClassNotebook(['teacher_id'=> $teacher_id])->orderBy($order_by)->get();
+    }
+
+    public function getClassNotebook($data)
+    {
+        return ClassNotebook::where($data);
+    }
+
+    public function getClassNotebooksByIDs($ids)
+    {
+        return ClassNotebook::whereIn('id', $ids)->orderBy('date')->get();
+    }
+
+    public function updateClassNotebook($id, $data)
+    {
+        return ClassNotebook::find($id)->update($data);
+    }
+
+    public function deleteClassNotebook($id)
+    {
+        return ClassNotebook::destroy($id);
+    }
+
+    public function getAllClassNotebooks()
+    {
+        // return ClassNotebook::orderBy('date', 'asc')->with(['topic', 'section', 'teacher', 'subject'])->get();
+        return ClassNotebook::orderBy('date', 'asc')->with(['topic', 'section', 'subject'])->get();
+    }
 }

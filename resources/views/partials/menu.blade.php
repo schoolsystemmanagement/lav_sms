@@ -114,6 +114,18 @@
                                 </ul>
                             </li>
 
+                            {{-- Class NoteBoooks --}}
+                            {{--<li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['class_notebooks.index','class_notebooks.edit']) ? 'nav-item-expanded' : '' }}">
+                                <a href="{{ route('class_notebooks.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['class_notebooks.index','class_notebooks.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Class Notebooks</span></a>
+                            </li>--}}
+                            <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['class_notebooks.index','class_notebooks.edit']) ? 'nav-item-expanded' : '' }}">
+                                <a href="#" class="nav-link {{ in_array(Route::currentRouteName(), ['class_notebooks.index','class_notebooks.edit' ]) ? 'active' : '' }}">Class NoteBoooks</a>
+                                <ul class="nav nav-group-sub">
+                                    <li class="nav-item"><a href="{{ route('class_notebooks.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['class_notebooks.index']) ? 'active' : '' }}">Class Notebooks</a></li>
+                                    {{--<li class="nav-item"><a href="{{ route('class_notebooks.edit', ['id' => $sub->id]) }}" class="nav-link {{ in_array(Route::currentRouteName(), ['class_notebooks.edit']) ? 'active' : '' }}">Edit Class Notebooks</a></li>--}}
+                                </ul>
+                            </li>
+
                             @if(Qs::userIsTeamSA())
 
                             {{--Student Promotion--}}
